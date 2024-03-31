@@ -36,3 +36,9 @@ To print the date and time:
 , and the time: 14:36
 .SH SEE ALSO
 printf(3)
+.SH BUGS
+All converter are not included in this function. It is recommended for more basic uses.
+.SH AUTHOR
+Ilyas Hasanli (Github: CashlockH)
+.br
+Ruslan Abiyev (Github: RubyHwaryun)
