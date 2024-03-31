@@ -71,3 +71,30 @@ int _string(char *str)
 	}
 	return (i - 2);
 }
+int _printf(const char *format, ...)
+{
+	va_list ap;
+	int i = 0, j = 0, count = 0;
+	char c;
+
+	va_start(ap, format);
+	while (format[j] != '\0')
+	{
+		if (format[j] == '%')
+		{
+			j++;
+			if (format[j] == '\0')
+				return (-1);
+			else if (format[j] == 'd' || format[j] == 'i')
+			{
+				i = _digit(va_arg(ap, int)), count += i;
+			}
+			else
+				write(1, "%", 1), write(1, &format[j], 1);
+		}
+		else
+			write(1, &format[j], 1);
+		j++;
+	}
+	va_end(ap);
+}
