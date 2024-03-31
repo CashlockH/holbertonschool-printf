@@ -32,3 +32,21 @@ int _digit(int a)
         write(1, "2147482624", 10);
         return (8);
     }
+        if (a < 0)
+    {
+        c = '-';
+        write(1, &c, 1), a = -a, count++;
+    }
+    while (a / bolen != 0)
+    {
+        bolen = bolen * 10;
+    }
+    bolen = bolen / 10;
+    while (bolen != 0)
+    {
+        c = a / bolen + '0';
+        write(1, &c, 1), count++;
+        a = a - a / bolen * bolen, bolen = bolen / 10;
+    }
+    return (count - 2);
+}
