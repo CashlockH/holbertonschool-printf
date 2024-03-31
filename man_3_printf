@@ -1,0 +1,38 @@
+.TH _printf 3
+.SH NAME
+_printf - prints the intended string
+.SH SYNOPSIS
+.B _printf(\fBconst char *\fR \fIformat\fR, ...);
+.SH DESCRIPTION
+.B _printf
+Prints the string that is given by user as an argument. _printf function also gets the arguments under the control of the format string and then prints them accordingly
+.SS Format of the format string
+The format string is a character string, beginning and ending in its initial shift state, if any.  The format string is composed of zero or more directives: ordinary characters (not %), which are copied unchanged to the output stream; and conversion specifications, each of which results in fetching zero or more subsequent arguments. Each conversion specification is introduced by the character %, and ends with a conversion specifier.
+.sp 1
+The overall syntax of a conversion specification is:
+.sp 1
+	%conversion
+.SS Conversion specifiers
+.sp 1
+The conversion specifiers and their meanings are:
+.B d, i
+Every element of the int argument is taken one by one  and printed according to the ascii table
+.B c
+the int argument is converted to an unsigned char, and the resulting character is written. 
+.B s
+the const char * argument is expected to be a pointer to an array of character type (pointer to a string).  Characters from the array are written up to (but not including) a terminating null byte ('\0');
+.B %
+A '%' is written.  No argument is converted.  The complete conversion specification is '%%'.
+.SH RETURN VALUE
+Upon successful return, these functions return the number of characters printed (excluding the null byte used to end output to strings).
+.SH EXAMPLES
+To print the date and time:
+.sp 1
+	#include "main.h"
+.br
+	_printf("The date: %d.%d.%d, and the time:%d:%d, "day, month, year, hour, minute");
+.sp 1
+	The value will be (for example): The date: 31.03.2004, and the time: 14:36
+, and the time: 14:36
+.SH SEE ALSO
+printf(3)
