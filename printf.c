@@ -71,6 +71,11 @@ int _string(char *str)
 	}
 	return (i - 2);
 }
+/**
+ * _printf - The same characteristics as printf
+ * @format: the type of the varible that should printed
+ * Return: the lenght of the printed Parameter
+ */
 int _printf(const char *format, ...)
 {
 	va_list ap;
