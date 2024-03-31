@@ -59,9 +59,9 @@ int _string(char *str)
 {
     int i = 0;
 
-    if (str = NULL)
+    if (str == NULL)
     {
-        write(1, "(null)", 5);
+        write(1, "(null)", 6);
         return (4);
     }
     while (str[i])
