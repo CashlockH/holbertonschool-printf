@@ -102,9 +102,12 @@ int _printf(const char *format, ...)
 			{
 				write(1, &format[j], 1);
 			}
+			else
+				write(1, "%", 1), write(1, &format[j], 1);
 		}
 		else
 			write(1, &format[j], 1);
 		j++;
+	}
 	va_end(ap);
 }
