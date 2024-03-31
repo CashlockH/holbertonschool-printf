@@ -74,7 +74,7 @@ int _string(char *str)
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int i = 0, j = 0;
+	int i = 0, j = 0, count = 0;
 	char c;
 
 	va_start(ap, format);
@@ -87,20 +87,20 @@ int _printf(const char *format, ...)
 				return (-1);
 			else if (format[j] == 'd' || format[j] == 'i')
 			{
-				i = _digit(va_arg(ap, int));
+				i = _digit(va_arg(ap, int)), count += i;
 			}
 			else if (format[j] == 's')
 			{
-				i = _string(va_arg(ap, char *));
+				i = _string(va_arg(ap, char *)), count += i;
 			}
 			else if (format[j] == 'c')
 			{
 				c = (char)va_arg(ap, int);
-				write(1, &c, 1);
+				write(1, &c, 1), count--;
 			}
 			else if (format[j] == '%')
 			{
-				write(1, &format[j], 1);
+				write(1, &format[j], 1), count--;
 			}
 			else
 				write(1, "%", 1), write(1, &format[j], 1);
