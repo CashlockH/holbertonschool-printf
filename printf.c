@@ -50,3 +50,24 @@ int _digit(int a)
     }
     return (count - 2);
 }
+/**
+ * _string - prints the characters of the string
+ * @str: string pointer of which characters should be printed
+ * Return: the length of the string
+ */
+int _string(char *str)
+{
+    int i = 0;
+
+    if (str = NULL)
+    {
+        write(1, "(null)", 5);
+        return (4);
+    }
+    while (str[i])
+    {
+        write(1, &str[i], 1);
+        i++;
+    }
+    return (i - 2);
+}
