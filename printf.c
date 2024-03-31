@@ -86,28 +86,29 @@ int _printf(const char *format, ...)
 			if (format[j] == '\0')
 				return (-1);
 			else if (format[j] == 'd' || format[j] == 'i')
-			{
+	      		{
 				i = _digit(va_arg(ap, int)), count += i;
 			}
-			else if (format[j] == 's')
+	    		else if (format[j] == 's')
 			{
 				i = _string(va_arg(ap, char *)), count += i;
-			}
+	     		}
 			else if (format[j] == 'c')
-			{
+	    		{
 				c = (char)va_arg(ap, int);
-				write(1, &c, 1), count--;
+		      		write(1, &c, 1), count--;
 			}
-			else if (format[j] == '%')
+	       		else if (format[j] == '%')
 			{
-				write(1, &format[j], 1), count--;
+	              		write(1, &format[j], 1), count--;
 			}
 			else
 				write(1, "%", 1), write(1, &format[j], 1);
 		}
 		else
-			write(1, &format[j], 1);
-		j++;
+		     write(1, &format[j], 1);
+	        j++;
 	}
 	va_end(ap);
+	return (j + count);
 }
